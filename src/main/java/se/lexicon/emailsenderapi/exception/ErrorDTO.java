@@ -1,7 +1,10 @@
 package se.lexicon.emailsenderapi.exception;
 
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 
+@Getter
 public class ErrorDTO {
 
     private Integer errorCode;
