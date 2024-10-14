@@ -1,4 +1,9 @@
 package se.lexicon.emailsenderapi.repository;
 
-public interface EmailRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import se.lexicon.emailsenderapi.domain.entity.Email;
+
+@Repository
+public interface EmailRepository extends JpaRepository<Email, String> {
 }
