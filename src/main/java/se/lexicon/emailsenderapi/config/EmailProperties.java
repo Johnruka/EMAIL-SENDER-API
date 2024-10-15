@@ -7,8 +7,9 @@ import org.springframework.context.annotation.PropertySource;
 
 @Getter
 @Configuration
-@PropertySource(value = {"classpath:email.properties"})
+@PropertySource(value = {"classpath: email.properties"})
 public class EmailProperties {
+
     @Value("${spring.mail.host}")
     private String host;
 
@@ -26,7 +27,4 @@ public class EmailProperties {
 
     @Value("${spring.mail.properties.mail.smtp.starttls.enable}")
     private boolean startTls;
-
-
-
 }
