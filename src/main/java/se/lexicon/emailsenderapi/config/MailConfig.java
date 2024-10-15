@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 public class MailConfig {
 
-    private final EmailProperties emailProperties;
+    private  final EmailProperties emailProperties;
 
     @Autowired
     public MailConfig(EmailProperties emailProperties) {
@@ -19,14 +19,17 @@ public class MailConfig {
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost(
-                emailProperties.getHost());
-        mailSender.setPort(emailProperties.getPort());
+        mailSender.setHost(emailProperties.getHost());
         mailSender.setUsername(emailProperties.getUsername());
         mailSender.setPassword(emailProperties.getPassword());
         mailSender.getJavaMailProperties().put("mail.smtp.auth", emailProperties.isSmtpAuth());
-        mailSender.getJavaMailProperties().put("mail.smtp.starttls.enable", emailProperties.isStartTls());
-        return mailSender;
+        mailSender.getJavaMailProperties().put("email.smtp.starttls.enable", emailProperties.isStartTls());
 
+        return mailSender;
     }
 }
+
+
+
+
+
